@@ -14,5 +14,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func openArabicBook(_ sender: Any) {
+       print("Arabic")
+    }
+    
+    @IBAction func openEnglishBook(_ sender: Any) {
+       print("English")
+    }
 }
 
