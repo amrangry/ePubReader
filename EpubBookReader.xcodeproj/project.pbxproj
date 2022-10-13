@@ -10,6 +10,7 @@
 		5201F4663449A602073007AA /* Pods_EpubBookReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8670F98AD48F35C40967A51C /* Pods_EpubBookReader.framework */; };
 		C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */; };
 		C51E9DF828F8416400A972A6 /* English_Book.epub in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DF528F8415D00A972A6 /* English_Book.epub */; };
+		C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C51E9DFB28F8533B00A972A6 /* .gitignore */; };
 		C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CAF28D61F34001096BE /* AppDelegate.swift */; };
 		C5678CB428D61F34001096BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5678CB328D61F34001096BE /* ViewController.swift */; };
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		A2FC3C88A5D1A1E5BE341FB5 /* Pods-EpubBookReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.debug.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.debug.xcconfig"; sourceTree = "<group>"; };
 		C51E9DF528F8415D00A972A6 /* English_Book.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = English_Book.epub; sourceTree = "<group>"; };
 		C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = Arabic_Book.epub; sourceTree = "<group>"; };
+		C51E9DFB28F8533B00A972A6 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C5678CAC28D61F34001096BE /* EpubBookReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EpubBookReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5678CAF28D61F34001096BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5678CB328D61F34001096BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,13 +60,13 @@
 				A2FC3C88A5D1A1E5BE341FB5 /* Pods-EpubBookReader.debug.xcconfig */,
 				DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		C5678CA328D61F34001096BE = {
 			isa = PBXGroup;
 			children = (
+				C51E9DFB28F8533B00A972A6 /* .gitignore */,
 				C5678CAE28D61F34001096BE /* EpubBookReader */,
 				C5678CAD28D61F34001096BE /* Products */,
 				5AE0911A1AA993142F5B458E /* Pods */,
@@ -106,6 +108,7 @@
 				C5678CA828D61F34001096BE /* Sources */,
 				C5678CA928D61F34001096BE /* Frameworks */,
 				C5678CAA28D61F34001096BE /* Resources */,
+				36965D1286EE8586E89BCF70 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +161,7 @@
 				C51E9DF828F8416400A972A6 /* English_Book.epub in Resources */,
 				C5678CB928D61F35001096BE /* Assets.xcassets in Resources */,
 				C51E9DF728F8416200A972A6 /* Arabic_Book.epub in Resources */,
+				C51E9DFC28F8533B00A972A6 /* .gitignore in Resources */,
 				C5678CB728D61F34001096BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +169,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		36965D1286EE8586E89BCF70 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FEA4CD3CE4F4FF097593DA4C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
