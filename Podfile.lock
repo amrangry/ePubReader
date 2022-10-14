@@ -4,26 +4,25 @@ PODS:
     - AEXML (= 4.3.3)
     - FontBlaster (= 4.1.0)
     - MenuItemKit (= 3.1.3)
-    - RealmSwift (= 3.13.1)
+    - RealmSwift (= 3.17.3)
     - SSZipArchive (= 2.1.1)
     - ZFDragableModalTransition (= 0.6)
   - FontBlaster (4.1.0)
   - MenuItemKit (3.1.3)
-  - Realm (3.13.1):
-    - Realm/Headers (= 3.13.1)
-  - Realm/Headers (3.13.1)
-  - RealmSwift (3.13.1):
-    - Realm (= 3.13.1)
+  - Realm (3.17.3):
+    - Realm/Headers (= 3.17.3)
+  - Realm/Headers (3.17.3)
+  - RealmSwift (3.17.3):
+    - Realm (= 3.17.3)
   - SSZipArchive (2.1.1)
   - ZFDragableModalTransition (0.6)
 
 DEPENDENCIES:
-  - FolioReaderKit
+  - FolioReaderKit (from `https://github.com/amrangry/FolioReaderKit.git`)
 
 SPEC REPOS:
   trunk:
     - AEXML
-    - FolioReaderKit
     - FontBlaster
     - MenuItemKit
     - Realm
@@ -31,16 +30,25 @@ SPEC REPOS:
     - SSZipArchive
     - ZFDragableModalTransition
 
+EXTERNAL SOURCES:
+  FolioReaderKit:
+    :git: https://github.com/amrangry/FolioReaderKit.git
+
+CHECKOUT OPTIONS:
+  FolioReaderKit:
+    :commit: 3cd2691b8021ab909dd1427dcf16eb0b4651aac2
+    :git: https://github.com/amrangry/FolioReaderKit.git
+
 SPEC CHECKSUMS:
   AEXML: 601f41fcaa7bda7605cad153b0f43db9ec006c0f
-  FolioReaderKit: 0ab8efee766eebd1cdbe88ca7791c7e966cad3be
+  FolioReaderKit: e9842c8058ffa170f0574e45b2761498cfef90c4
   FontBlaster: 127aa66419478d1c62926c7fdb39841633344a45
   MenuItemKit: 0f850e630b0a3d2bd80fec54db87ce0d2077ada2
-  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
-  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
+  RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
-PODFILE CHECKSUM: 0f389af9d22c08539dbe240d25a39179d347e0f8
+PODFILE CHECKSUM: 2adef41eb425ea212b5f8f005f1ad01ddb005e47
 
 COCOAPODS: 1.11.3

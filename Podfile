@@ -7,6 +7,6 @@ target 'EpubBookReader' do
   use_frameworks!
 
   # Pods for EpubBookReader
-  pod 'FolioReaderKit'
-  
+  # pod 'FolioReaderKit'
+  pod 'FolioReaderKit', :git => 'https://github.com/amrangry/FolioReaderKit.git', :inhibit_warnings => true
 end
