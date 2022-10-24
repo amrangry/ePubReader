@@ -20,6 +20,13 @@ class LibraryListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        title = bookName
+        bookTitle?.isHidden = true
+    }
+    
     @IBAction func folioReaderKitPressed(_ sender: Any) {
         //        let config = FolioReaderConfig()
         //        let folioReader = FolioReader()
