@@ -16,6 +16,8 @@
 		C5678CB728D61F34001096BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB528D61F34001096BE /* Main.storyboard */; };
 		C5678CB928D61F35001096BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5678CB828D61F35001096BE /* Assets.xcassets */; };
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
+		C5C12E0D28FC6BC20078C319 /* ActivityTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C12E0C28FC6BC20078C319 /* ActivityTitleView.swift */; };
+		C5C12E0F28FC6C610078C319 /* RemoteHTMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C12E0E28FC6C610078C319 /* RemoteHTMLViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		C5678CB828D61F35001096BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5678CBB28D61F35001096BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5678CBD28D61F35001096BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5C12E0C28FC6BC20078C319 /* ActivityTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTitleView.swift; sourceTree = "<group>"; };
+		C5C12E0E28FC6C610078C319 /* RemoteHTMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteHTMLViewController.swift; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +97,8 @@
 				C5678CBD28D61F35001096BE /* Info.plist */,
 				C51E9DF628F8415E00A972A6 /* Arabic_Book.epub */,
 				C51E9DF528F8415D00A972A6 /* English_Book.epub */,
+				C5C12E0C28FC6BC20078C319 /* ActivityTitleView.swift */,
+				C5C12E0E28FC6C610078C319 /* RemoteHTMLViewController.swift */,
 			);
 			path = EpubBookReader;
 			sourceTree = "<group>";
@@ -216,7 +222,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
+				C5C12E0F28FC6C610078C319 /* RemoteHTMLViewController.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,
+				C5C12E0D28FC6BC20078C319 /* ActivityTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,8 +370,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EpubBookReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -378,6 +387,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.EpubBookReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,8 +400,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EpubBookReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -406,6 +417,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.apps.EpubBookReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
