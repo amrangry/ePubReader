@@ -94,15 +94,26 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ4-lq-My5">
+                                <rect key="frame" x="186.5" y="98" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2h8-FZ-NM4"/>
                         <color key="backgroundColor" systemColor="systemMintColor"/>
                         <constraints>
+                            <constraint firstItem="xZ4-lq-My5" firstAttribute="top" secondItem="2h8-FZ-NM4" secondAttribute="top" constant="50" id="IMW-bj-IVx"/>
                             <constraint firstItem="EiO-Fc-ECf" firstAttribute="centerX" secondItem="2h8-FZ-NM4" secondAttribute="centerX" id="TiP-DZ-87K"/>
                             <constraint firstItem="EiO-Fc-ECf" firstAttribute="centerY" secondItem="2h8-FZ-NM4" secondAttribute="centerY" id="aLc-qQ-ftE"/>
+                            <constraint firstItem="xZ4-lq-My5" firstAttribute="centerX" secondItem="2h8-FZ-NM4" secondAttribute="centerX" id="c5y-4q-na4"/>
                             <constraint firstItem="EiO-Fc-ECf" firstAttribute="width" secondItem="j6g-AE-Gr9" secondAttribute="width" multiplier="1:2" id="raQ-g5-Nmj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bookTitle" destination="xZ4-lq-My5" id="kFc-jZ-pML"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzI-1t-MJY" sceneMemberID="firstResponder"/>
             </objects>

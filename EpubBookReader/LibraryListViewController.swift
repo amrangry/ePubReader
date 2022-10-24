@@ -10,7 +10,9 @@ import R2Shared
 import R2Streamer
 
 class LibraryListViewController: UIViewController {
-
+    
+    @IBOutlet weak var bookTitle: UILabel?
+    
     var bookName: String?
     
     override func viewDidLoad() {
