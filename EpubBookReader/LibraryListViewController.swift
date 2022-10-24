@@ -17,7 +17,7 @@ class LibraryListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func folioReaderKitPressed(_ sender: Any) {
         //        let config = FolioReaderConfig()
         //        let folioReader = FolioReader()
@@ -29,7 +29,7 @@ class LibraryListViewController: UIViewController {
         guard let bookPath = Bundle.main.path(forResource: name, ofType: "epub") else {
             return
         }
-
+        
         guard let url = URL(string: bookPath) else {
             return
         }
@@ -37,9 +37,9 @@ class LibraryListViewController: UIViewController {
         streamer.open(asset: FileAsset(url: url), allowUserInteraction: true) { result in
             switch result {
             case .success(let publication):
-            print("here")
+                print("here")
             case .failure(let error):
-               // alert(error.localizedDescription)
+                // alert(error.localizedDescription)
                 print("here: \(error.localizedDescription)")
             case .cancelled:
                 break

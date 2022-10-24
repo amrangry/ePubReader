@@ -11,22 +11,22 @@ import R2Shared
 import R2Streamer
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func openArabicBook(_ sender: Any) {
-       print("Arabic")
+        print("Arabic")
         let name = "Arabic_Book"
         open(book: name)
     }
     
     @IBAction func openEnglishBook(_ sender: Any) {
-       print("English")
-       let name = "English_Book"
-       open(book: name)
+        print("English")
+        let name = "English_Book"
+        open(book: name)
     }
     
     func open(book name: String) {
