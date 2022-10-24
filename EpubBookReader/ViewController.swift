@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     func open(book name: String) {
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
         guard let vc = storyBoard.instantiateViewController(identifier: "LibraryListViewController") as? LibraryListViewController else { return }
+        vc.bookName = name
         //self.present(vc, animated: false, completion: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
