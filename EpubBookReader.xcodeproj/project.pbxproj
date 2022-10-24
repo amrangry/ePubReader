@@ -18,6 +18,7 @@
 		C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */; };
 		C5C12E0D28FC6BC20078C319 /* ActivityTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C12E0C28FC6BC20078C319 /* ActivityTitleView.swift */; };
 		C5C12E0F28FC6C610078C319 /* RemoteHTMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C12E0E28FC6C610078C319 /* RemoteHTMLViewController.swift */; };
+		C5F905E52906FE710022521E /* LibraryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F905E42906FE710022521E /* LibraryListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C5678CBD28D61F35001096BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5C12E0C28FC6BC20078C319 /* ActivityTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTitleView.swift; sourceTree = "<group>"; };
 		C5C12E0E28FC6C610078C319 /* RemoteHTMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteHTMLViewController.swift; sourceTree = "<group>"; };
+		C5F905E42906FE710022521E /* LibraryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryListViewController.swift; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,8 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				C5678CAF28D61F34001096BE /* AppDelegate.swift */,
-				C5678CB328D61F34001096BE /* ViewController.swift */,
 				C5678CB528D61F34001096BE /* Main.storyboard */,
+				C5678CB328D61F34001096BE /* ViewController.swift */,
+				C5F905E42906FE710022521E /* LibraryListViewController.swift */,
 				C5678CB828D61F35001096BE /* Assets.xcassets */,
 				C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */,
 				C5678CBD28D61F35001096BE /* Info.plist */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F905E52906FE710022521E /* LibraryListViewController.swift in Sources */,
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
 				C5C12E0F28FC6C610078C319 /* RemoteHTMLViewController.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,

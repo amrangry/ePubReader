@@ -30,29 +30,10 @@ class ViewController: UIViewController {
     }
     
     func open(book name: String) {
-        guard let bookPath = Bundle.main.path(forResource: name, ofType: "epub") else {
-            return
-        }
-//        let config = FolioReaderConfig()
-//        let folioReader = FolioReader()
-//        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config)
-        
-        guard let url = URL(string: bookPath) else {
-            return
-        }
-        let streamer = Streamer()
-        streamer.open(asset: FileAsset(url: url), allowUserInteraction: true) { result in
-            switch result {
-            case .success(let publication):
-            print("here")
-            case .failure(let error):
-               // alert(error.localizedDescription)
-                print("here: \(error.localizedDescription)")
-            case .cancelled:
-                break
-            }
-        }
-        
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        guard let vc = storyBoard.instantiateViewController(identifier: "LibraryListViewController") as? LibraryListViewController else { return }
+        //self.present(vc, animated: false, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
