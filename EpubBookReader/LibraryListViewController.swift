@@ -14,7 +14,7 @@ class LibraryListViewController: UIViewController {
     @IBOutlet weak var bookTitle: UILabel?
     
     var bookName: String?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -33,26 +33,60 @@ class LibraryListViewController: UIViewController {
         //        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config)
     }
     
+    private var streamer: Streamer?
+    
     @IBAction func readiumPressed(_ sender: Any) {
         guard let name = bookName else { return }
         guard let bookPath = Bundle.main.path(forResource: name, ofType: "epub") else {
             return
         }
         
-        guard let url = URL(string: bookPath) else {
+        let url = URL(fileURLWithPath: bookPath, isDirectory: false)
+//        let streamer = Streamer()
+//        streamer.open(asset: FileAsset(url: url), allowUserInteraction: true) { result in
+//            switch result {
+//            case .success(let publication):
+//                print("here")
+//            case .failure(let error):
+//                // alert(error.localizedDescription)
+//                print("here: \(error.localizedDescription)")
+//            case .cancelled:
+//                break
+//            }
+//        }
+        
+        let asset = FileAsset(url: url)
+        guard let mediaType = asset.mediaType() else {
             return
         }
-        let streamer = Streamer()
-        streamer.open(asset: FileAsset(url: url), allowUserInteraction: true) { result in
+        streamer = Streamer()
+        streamer?.open(asset: asset, allowUserInteraction: true, sender: sender) { result in
             switch result {
             case .success(let publication):
-                print("here")
+                //promise(.success((publication, mediaType)))
+                self.handle(publication)
+                print("success")
             case .failure(let error):
-                // alert(error.localizedDescription)
-                print("here: \(error.localizedDescription)")
+                //promise(.failure(.openFailed(error)))
+                print("error")
             case .cancelled:
-                break
+                //promise(.failure(.cancelled))
+                print("cancelled")
             }
+        }
+    }
+    
+    func handle(_ publication: Publication) {
+        guard let publicationServer = PublicationServer() else {
+            /// FIXME: we should recover properly if the publication server can't start, maybe this should only forbid opening a publication?
+            fatalError("Can't start publication server")
+        }
+        
+        publicationServer.removeAll()
+        do {
+            try publicationServer.add(publication)
+        } catch {
+            print("cancelled")
         }
     }
     
