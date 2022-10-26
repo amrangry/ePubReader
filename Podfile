@@ -23,10 +23,7 @@ target 'EpubBookReader' do
 #    pod 'Kingfisher'
 #    pod 'MBProgressHUD'
 #    pod 'SwiftSoup'
-  
-  #FolioReaderKit
-  #pod 'FolioReaderKit'
-  #pod 'FolioReaderKit', :git => 'https://github.com/amrangry/FolioReaderKit.git', :inhibit_warnings => true
+
 end
 
 post_install do |installer|

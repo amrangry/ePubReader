@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import FolioReaderKit
+
 import R2Shared
 import R2Streamer
 
@@ -33,7 +33,6 @@ class ViewController: UIViewController {
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
         guard let vc = storyBoard.instantiateViewController(identifier: "LibraryListViewController") as? LibraryListViewController else { return }
         vc.bookName = name
-        //self.present(vc, animated: false, completion: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

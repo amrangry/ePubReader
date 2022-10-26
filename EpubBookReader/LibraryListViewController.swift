@@ -5,7 +5,6 @@
 //  Created by Amr Elghadban on 24/10/2022.
 //
 
-//import FolioReaderKit
 import R2Shared
 import R2Streamer
 
@@ -14,7 +13,7 @@ class LibraryListViewController: UIViewController {
     @IBOutlet weak var bookTitle: UILabel?
     
     var bookName: String?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,12 +26,6 @@ class LibraryListViewController: UIViewController {
         bookTitle?.isHidden = true
     }
     
-    @IBAction func folioReaderKitPressed(_ sender: Any) {
-        //        let config = FolioReaderConfig()
-        //        let folioReader = FolioReader()
-        //        folioReader.presentReader(parentViewController: self, withEpubPath: bookPath!, andConfig: config)
-    }
-    
     private var streamer: Streamer?
     
     @IBAction func readiumPressed(_ sender: Any) {
@@ -42,19 +35,6 @@ class LibraryListViewController: UIViewController {
         }
         
         let url = URL(fileURLWithPath: bookPath, isDirectory: false)
-//        let streamer = Streamer()
-//        streamer.open(asset: FileAsset(url: url), allowUserInteraction: true) { result in
-//            switch result {
-//            case .success(let publication):
-//                print("here")
-//            case .failure(let error):
-//                // alert(error.localizedDescription)
-//                print("here: \(error.localizedDescription)")
-//            case .cancelled:
-//                break
-//            }
-//        }
-        
         let asset = FileAsset(url: url)
         guard let mediaType = asset.mediaType() else {
             return

@@ -74,18 +74,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-Fc-ECf">
-                                <rect key="frame" x="103.5" y="410.5" width="207" height="89"/>
+                                <rect key="frame" x="103.5" y="438" width="207" height="34.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzK-4L-scy">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="FolioReaderKit"/>
-                                        <connections>
-                                            <action selector="folioReaderKitPressed:" destination="czb-Wx-4Tv" eventType="touchUpInside" id="Mgo-oR-yHB"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L50-5m-Kzx">
-                                        <rect key="frame" x="0.0" y="54.5" width="207" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="207" height="34.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Readium"/>
                                         <connections>
