@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,30 +34,89 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGZ-CJ-KY5">
-                                <rect key="frame" x="149" y="460" width="116" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Arabic Book"/>
-                                <connections>
-                                    <action selector="openArabicBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvo-fW-aQj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bO-oD-PNh">
-                                <rect key="frame" x="146" y="514.5" width="122" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="English Book"/>
-                                <connections>
-                                    <action selector="openEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTU-cQ-JmT"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="A5l-aj-K84">
+                                <rect key="frame" x="87" y="378.5" width="240" height="197"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ylT-YB-ndT">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Media Overlay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zI2-YK-GSP">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JTN-4U-gkn">
+                                                <rect key="frame" x="0.0" y="27.5" width="240" height="45"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX6-U1-0XQ">
+                                                        <rect key="frame" x="63" y="12.5" width="24.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Py-Qc-74F">
+                                                        <rect key="frame" x="95.5" y="7" width="51" height="31"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyp-sD-cmb">
+                                                        <rect key="frame" x="154.5" y="12.5" width="22.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="eyp-sD-cmb" firstAttribute="centerY" secondItem="JTN-4U-gkn" secondAttribute="centerY" id="0Eq-DR-CQe"/>
+                                                    <constraint firstItem="6Py-Qc-74F" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oX6-U1-0XQ" secondAttribute="trailing" symbolic="YES" id="411-f6-pI2"/>
+                                                    <constraint firstItem="oX6-U1-0XQ" firstAttribute="leading" secondItem="JTN-4U-gkn" secondAttribute="leading" constant="63" id="BPH-6p-gJo"/>
+                                                    <constraint firstAttribute="height" constant="45" id="PJC-4F-5nY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eyp-sD-cmb" secondAttribute="trailing" constant="63" id="SSw-Tr-Jsv"/>
+                                                    <constraint firstItem="6Py-Qc-74F" firstAttribute="centerY" secondItem="JTN-4U-gkn" secondAttribute="centerY" id="ZVJ-W4-ig9"/>
+                                                    <constraint firstItem="6Py-Qc-74F" firstAttribute="centerX" secondItem="JTN-4U-gkn" secondAttribute="centerX" id="cAu-Yq-Q52"/>
+                                                    <constraint firstItem="eyp-sD-cmb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Py-Qc-74F" secondAttribute="trailing" symbolic="YES" id="em4-au-Wde"/>
+                                                    <constraint firstItem="oX6-U1-0XQ" firstAttribute="centerY" secondItem="JTN-4U-gkn" secondAttribute="centerY" id="nj6-4E-IS0"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we1-fj-BSX">
+                                        <rect key="frame" x="0.0" y="79.5" width="240" height="34.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.28627450980000002" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="English Book"/>
+                                        <connections>
+                                            <action selector="openEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oic-Gv-EWp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7X-au-w6n">
+                                        <rect key="frame" x="0.0" y="121" width="240" height="34.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.0" green="0.28627450980000002" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Arabic Book"/>
+                                        <connections>
+                                            <action selector="openArabicBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H20-wW-fB4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v63-JB-Aih">
+                                        <rect key="frame" x="0.0" y="162.5" width="240" height="34.5"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Download Book and Read"/>
+                                        <connections>
+                                            <action selector="downloadAndOpenEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kib-QT-Gw7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
-                            <constraint firstItem="9bO-oD-PNh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4JN-zj-0hV"/>
-                            <constraint firstItem="bGZ-CJ-KY5" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="9Ji-6q-zLJ"/>
-                            <constraint firstItem="bGZ-CJ-KY5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZKU-EU-y4j"/>
-                            <constraint firstItem="9bO-oD-PNh" firstAttribute="top" secondItem="bGZ-CJ-KY5" secondAttribute="bottom" constant="20" id="kan-p3-NC3"/>
+                            <constraint firstItem="A5l-aj-K84" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="PvB-SP-feZ"/>
+                            <constraint firstItem="A5l-aj-K84" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qij-za-HGt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O2L-mG-AzM"/>
@@ -65,59 +125,16 @@
             </objects>
             <point key="canvasLocation" x="-1001" y="106"/>
         </scene>
-        <!--Library List View Controller-->
-        <scene sceneID="yL9-GY-o7i">
-            <objects>
-                <viewController storyboardIdentifier="LibraryListViewController" id="czb-Wx-4Tv" customClass="LibraryListViewController" customModule="EpubBookReader" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j6g-AE-Gr9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-Fc-ECf">
-                                <rect key="frame" x="103.5" y="438" width="207" height="34.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L50-5m-Kzx">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="34.5"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Readium"/>
-                                        <connections>
-                                            <action selector="readiumPressed:" destination="czb-Wx-4Tv" eventType="touchUpInside" id="KaE-xb-YcS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ4-lq-My5">
-                                <rect key="frame" x="186.5" y="98" width="41.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="2h8-FZ-NM4"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
-                        <constraints>
-                            <constraint firstItem="xZ4-lq-My5" firstAttribute="top" secondItem="2h8-FZ-NM4" secondAttribute="top" constant="50" id="IMW-bj-IVx"/>
-                            <constraint firstItem="EiO-Fc-ECf" firstAttribute="centerX" secondItem="2h8-FZ-NM4" secondAttribute="centerX" id="TiP-DZ-87K"/>
-                            <constraint firstItem="EiO-Fc-ECf" firstAttribute="centerY" secondItem="2h8-FZ-NM4" secondAttribute="centerY" id="aLc-qQ-ftE"/>
-                            <constraint firstItem="xZ4-lq-My5" firstAttribute="centerX" secondItem="2h8-FZ-NM4" secondAttribute="centerX" id="c5y-4q-na4"/>
-                            <constraint firstItem="EiO-Fc-ECf" firstAttribute="width" secondItem="j6g-AE-Gr9" secondAttribute="width" multiplier="1:2" id="raQ-g5-Nmj"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="bookTitle" destination="xZ4-lq-My5" id="kFc-jZ-pML"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PzI-1t-MJY" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="994" y="98"/>
-        </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
