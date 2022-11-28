@@ -61,7 +61,9 @@ class ViewController: UIViewController {
             // need to download
             let downloadFolder = ""
             download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [weak self] response in
-                if case .success(_) = response {
+                if case .success(let value) = response {
+                    guard let fileURL = value as? URL else { return }
+                    ePubReader.instalPublication(url: fileURL, sender: self)
                     ePubReader.installPublication(fileName: fileName)
                     guard let viewController = ePubReader.getReaderViewController() else { return }
                     self?.open(viewController)
