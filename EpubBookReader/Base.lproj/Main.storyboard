@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="A5l-aj-K84">
-                                <rect key="frame" x="87" y="378.5" width="240" height="197"/>
+                                <rect key="frame" x="87" y="358" width="240" height="238.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="ylT-YB-ndT">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="72.5"/>
@@ -50,7 +50,7 @@
                                                 <rect key="frame" x="0.0" y="27.5" width="240" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX6-U1-0XQ">
-                                                        <rect key="frame" x="63" y="12.5" width="24.5" height="20.5"/>
+                                                        <rect key="frame" x="63" y="12" width="24.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                                                         <rect key="frame" x="95.5" y="7" width="51" height="31"/>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyp-sD-cmb">
-                                                        <rect key="frame" x="154.5" y="12.5" width="22.5" height="20.5"/>
+                                                        <rect key="frame" x="154.5" y="12" width="22.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -107,6 +107,16 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Download Book and Read"/>
                                         <connections>
                                             <action selector="downloadAndOpenEnglishBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kib-QT-Gw7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWK-gV-FeU">
+                                        <rect key="frame" x="0.0" y="204" width="240" height="34.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.0" green="0.28627450980000002" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Library"/>
+                                        <connections>
+                                            <action selector="goToLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7bE-ih-EF7"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -29,6 +29,20 @@ class ViewController: UIViewController {
         EPubReaderConfigurator.shared.installPublication(fileName: "Arabic_Book.epub")
     }
     
+    @IBAction func goToLibrary(_ sender: Any) {
+        let ePubReader = EPubReaderConfigurator.shared
+        let app = ePubReader.app
+        // Library
+        guard let viewerViewController = app?.library.rootViewController else { return }
+        
+        AppDelegate.shared?.window?.rootViewController = viewerViewController
+        AppDelegate.shared?.window?.makeKeyAndVisible()
+        
+        
+//        guard let navigationController = navigationController else { return }
+//        navigationController.pushViewController(viewerViewController, animated: true)
+    }
+    
     @IBAction func openArabicBook(_ sender: Any) {
         let name = "Arabic_Book.epub"
         let fileName = name
@@ -63,8 +77,8 @@ class ViewController: UIViewController {
             download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [weak self] response in
                 if case .success(let value) = response {
                     guard let fileURL = value as? URL else { return }
-                    ePubReader.instalPublication(url: fileURL, sender: self)
-                    ePubReader.installPublication(fileName: fileName)
+                    ePubReader.installPublication(url: fileURL, sender: self)
+                  //  ePubReader.installPublication(fileName: fileName)
                     guard let viewController = ePubReader.getReaderViewController() else { return }
                     self?.open(viewController)
                 }
