@@ -45,8 +45,8 @@ final class LibraryModule: LibraryModuleAPI {
 
     weak var delegate: LibraryModuleDelegate?
     
-    private let library: LibraryService
-    private let factory: LibraryFactory
+    let library: LibraryService
+    let factory: LibraryFactory
     private var subscriptions = Set<AnyCancellable>()
 
     init(delegate: LibraryModuleDelegate?, books: BookRepository, server: PublicationServer, httpClient: HTTPClient) {
