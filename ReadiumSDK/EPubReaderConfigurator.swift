@@ -35,8 +35,8 @@ extension EPubReaderConfigurator {
     func goToLibrary() {
 //        let ePubReader = EPubReaderConfigurator.shared
 //        let app = ePubReader.app
-        let lastUINavigationController = AppDelegate.shared?.window?.rootViewController?.navigationController
-        previousNavigationController = lastUINavigationController
+        let rootViewController = AppDelegate.shared?.window?.rootViewController
+        previousViewController = rootViewController
         // Library
         guard let viewerViewController = app?.library.rootViewController else { return }
         setAppNavigationController(controller: viewerViewController)
@@ -44,7 +44,7 @@ extension EPubReaderConfigurator {
     
     
     func backToPrevious() {
-        setAppNavigationController(controller: previousNavigationController)
+        setAppNavigationController(controller: previousViewController)
     }
     
     private func setAppNavigationController( controller: UIViewController?) {
@@ -60,7 +60,7 @@ class EPubReaderConfigurator {
 
     static let shared = EPubReaderConfigurator()
     
-    var previousNavigationController: UINavigationController?
+    var previousViewController: UIViewController?
     
     var sender: UIViewController = AppDelegate.shared?.window?.rootViewController ?? UIViewController()
     
