@@ -46,7 +46,8 @@ class LibraryViewController: UIViewController, Loggable {
     private var subscriptions = Set<AnyCancellable>()
     
     lazy var loadingIndicator = PublicationIndicator()
-    private lazy var addBookButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBook))
+    private lazy var addBookButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButtonPressed))
+    private lazy var addBackButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(goBackButtonPressed))
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -84,6 +85,7 @@ class LibraryViewController: UIViewController, Loggable {
         collectionView.accessibilityLabel = NSLocalizedString("library_a11y_label", comment: "Accessibility label for the library collection view")
         
         self.navigationItem.rightBarButtonItem = addBookButton
+        self.navigationItem.leftBarButtonItem = addBackButton
         
         navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -140,7 +142,12 @@ class LibraryViewController: UIViewController, Loggable {
         flowLayout.itemSize = CGSize(width: width, height: height)
     }
     
-    @objc func addBook() {
+    @objc func goBackButtonPressed() {
+        let ePubReader = EPubReaderConfigurator.shared
+        ePubReader.backToPrevious()
+    }
+    
+    @objc func addBookButtonPressed() {
         let alert = UIAlertController(title: NSLocalizedString("library_add_book_title", comment: "Title for the Add book alert"), message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: NSLocalizedString("library_add_book_from_device_button", comment: "`Add a book from your device` button"), style: .default, handler: { _ in self.addBookFromDevice() }))
         alert.addAction(UIAlertAction(title: NSLocalizedString("library_add_book_from_url_button", comment: "`Add a book from a URL` button"), style: .default, handler: { _ in self.addBookFromURL() }))
