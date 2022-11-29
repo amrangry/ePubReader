@@ -98,6 +98,7 @@
 		C5BD43BB2933D25E004878E1 /* ViewController+downloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD43BA2933D25E004878E1 /* ViewController+downloadable.swift */; };
 		C5BD43BF2933D553004878E1 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD43BD2933D553004878E1 /* FileHelper.swift */; };
 		C5BD43C02933D553004878E1 /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD43BE2933D553004878E1 /* Debugger.swift */; };
+		C5BE99C829354B3F00D6892F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5BE99C729354B3F00D6892F /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +196,7 @@
 		C5BD43BA2933D25E004878E1 /* ViewController+downloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+downloadable.swift"; sourceTree = "<group>"; };
 		C5BD43BD2933D553004878E1 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		C5BD43BE2933D553004878E1 /* Debugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
+		C5BE99C729354B3F00D6892F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,6 +259,7 @@
 				C5678CB328D61F34001096BE /* ViewController.swift */,
 				C5BD43BA2933D25E004878E1 /* ViewController+downloadable.swift */,
 				C5678CB828D61F35001096BE /* Assets.xcassets */,
+				C5BE99C729354B3F00D6892F /* Localizable.strings */,
 				C5678CBA28D61F35001096BE /* LaunchScreen.storyboard */,
 				C5678CBD28D61F35001096BE /* Info.plist */,
 			);
@@ -587,6 +590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5BE99C829354B3F00D6892F /* Localizable.strings in Resources */,
 				C5A91431292E8DC20043B0F4 /* UserSettings.strings in Resources */,
 				C5A913E1292E8D8B0043B0F4 /* PublicationMenuViewController.xib in Resources */,
 				C5678CBC28D61F35001096BE /* LaunchScreen.storyboard in Resources */,
