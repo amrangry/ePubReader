@@ -31,16 +31,7 @@ class ViewController: UIViewController {
     
     @IBAction func goToLibrary(_ sender: Any) {
         let ePubReader = EPubReaderConfigurator.shared
-        let app = ePubReader.app
-        // Library
-        guard let viewerViewController = app?.library.rootViewController else { return }
-        
-        AppDelegate.shared?.window?.rootViewController = viewerViewController
-        AppDelegate.shared?.window?.makeKeyAndVisible()
-        
-        
-//        guard let navigationController = navigationController else { return }
-//        navigationController.pushViewController(viewerViewController, animated: true)
+        ePubReader.goToLibrary()
     }
     
     @IBAction func openArabicBook(_ sender: Any) {

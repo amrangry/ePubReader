@@ -30,9 +30,37 @@ import Kingfisher
 import ReadiumOPDS
 import UniformTypeIdentifiers
 
+extension EPubReaderConfigurator {
+    
+    func goToLibrary() {
+//        let ePubReader = EPubReaderConfigurator.shared
+//        let app = ePubReader.app
+        let lastUINavigationController = AppDelegate.shared?.window?.rootViewController?.navigationController
+        previousNavigationController = lastUINavigationController
+        // Library
+        guard let viewerViewController = app?.library.rootViewController else { return }
+        setAppNavigationController(controller: viewerViewController)
+    }
+    
+    
+    func backToPrevious() {
+        setAppNavigationController(controller: previousNavigationController)
+    }
+    
+    private func setAppNavigationController( controller: UIViewController?) {
+        guard let root = controller else { return }
+        AppDelegate.shared?.window?.rootViewController = root
+        AppDelegate.shared?.window?.makeKeyAndVisible()
+        //        guard let navigationController = navigationController else { return }
+        //        navigationController.pushViewController(viewerViewController, animated: true)
+    }
+}
+
 class EPubReaderConfigurator {
 
     static let shared = EPubReaderConfigurator()
+    
+    var previousNavigationController: UINavigationController?
     
     var sender: UIViewController = AppDelegate.shared?.window?.rootViewController ?? UIViewController()
     
