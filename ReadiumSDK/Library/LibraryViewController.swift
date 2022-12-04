@@ -119,7 +119,7 @@ class LibraryViewController: UIViewController, Loggable {
         
         let idiom = { () -> UIUserInterfaceIdiom in
             let tempIdion = UIDevice.current.userInterfaceIdiom
-            return (tempIdion != .pad) ? .phone:.pad // ignnore carplay and others
+            return (tempIdion != .pad) ? .phone:.pad // ignore carplay and others
         } ()
         
         let layoutNumberPerRow:[UIUserInterfaceIdiom:[ScreenOrientation: Int]] = [
