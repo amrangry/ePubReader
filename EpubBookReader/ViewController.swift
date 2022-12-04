@@ -70,19 +70,27 @@ class ViewController: UIViewController {
         let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
         if check {
             print(check)
+            ePubReader.app.presentAlert("Already Exist", message: "Book", from: self)//presentAlert("Success", message: "Book Downloaded", from: self)
         } else {
             // need to download
             let downloadFolder = ""
-            download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [weak self] response in
+            download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [unowned self] response in
                 switch response {
                 case .success(let value):
                     guard let fileURL = value as? URL else { return }
-                    ePubReader.installPublication(url: fileURL, sender: self)
-                    //  ePubReader.installPublication(fileName: fileName)
-                    // downloaded
-                    let books = ePubReader.books
-                    let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
-                    print(books)
+                    ePubReader.installPublication(url: fileURL, sender: self) { response in
+                        switch response {
+                        case .success(let value):
+                            let book = value
+                            print(book)
+                            let books = ePubReader.books
+                            let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
+                            print(books)
+                            ePubReader.app.presentAlert("Success", message: "Book Downloaded", from: self)
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                 case .failure(let error):
                     print(error)
                     

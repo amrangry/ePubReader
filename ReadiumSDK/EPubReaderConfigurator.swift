@@ -136,27 +136,17 @@ class EPubReaderConfigurator {
     /// Imports a new publication to the library, either from:
     /// - a local file URL
     /// - a remote URL which will be downloaded
-    func installPublication(url: URL, sender: UIViewController?) {
-
-        func importPublication(from url: URL, sender: UIViewController?) {
-            //LibraryModuleAPI
-            guard let viewController = AppDelegate.shared?.window?.rootViewController else { return }
-           // _ = app.library.importPublication(from: url, sender: viewController)
-//file:///Users/amr/Library/Developer/CoreSimulator/Devices/168A3DFB-36EF-419B-BD16-EDAC75A4B929/data/Containers/Data/Application/99DF5CC2-9440-416D-ACFD-4142E7F01757/Documents/Inbox/Arabic_Book.epub
-            
-//file:///Users/amr/Library/Developer/CoreSimulator/Devices/168A3DFB-36EF-419B-BD16-EDAC75A4B929/data/Containers/Data/Application/C143555F-0114-4052-A449-2B76620E0614/Documents/FederalistPapers.epub
-            app.library.importPublication(from: url, sender: viewController)
-                .assertNoFailure()
-                .sink { _ in }
-                .store(in: &subscriptions)
+    func installPublication(url: URL, sender: UIViewController?, completion: @escaping ResultResponse<Any>){
+        guard let viewController = AppDelegate.shared?.window?.rootViewController else {
+           // completion(.failure())
+            return
         }
-        
-        func tryAdd(from url: URL) {
-            importPublication(from: url, sender: sender)
-        }
-        
-        tryAdd(from: url)
-        
+        app.library.importPublication(from: url, sender: viewController)
+            .assertNoFailure()
+            .sink(receiveValue: { book in
+                completion(.success(book))
+            })
+            .store(in: &subscriptions)
     }
     
     func displayBook(_ name: String, sender: UIViewController) {
