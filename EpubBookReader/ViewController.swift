@@ -19,34 +19,78 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         _ = EPubReaderConfigurator.shared.app
     }
-
+    
     @IBAction func downloadAndOpenEnglishBook(_ sender: Any) {
-//        let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
-//        let fileName = "FederalistPapers.epub"
-//        let ePubReader = EPubReaderConfigurator.shared
-//
-//        if ePubReader.loadBook() {
-//            guard let viewController = ePubReader.getReaderViewController() else { return }
-//            open(viewController)
-//        } else {
-//            // need to download
-//            let downloadFolder = ""
-//            download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [weak self] response in
-//                if case .success(let value) = response {
-//                    guard let fileURL = value as? URL else { return }
-//                    ePubReader.installPublication(url: fileURL, sender: self)
-//                  //  ePubReader.installPublication(fileName: fileName)
-//                    guard let viewController = ePubReader.getReaderViewController() else { return }
-//                    self?.open(viewController)
-//                }
-//            }
-//        }
+        
+        //        "id": "271961",
+        //        "type": "attachments",
+        //        "attributes": {
+        //            "name": "بلاد تركب العنكبوتepub",
+        //            "file_name": "بلاد-تركب-العنكبوتepub.epub",
+        //            "mime_type": "application/epub+zip",
+        //            "size": "1.44 MB"
+        //        },
+        //        "links": {
+        //            "self": "https://cdn.aseeralkotb.com/storage/media/271961/بلاد-تركب-العنكبوتepub.epub"
+        //        }
+        
+        //        let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
+        //        let fileName = "FederalistPapers.epub"
+        //        let bookTitle = "The Federalist Papers"
+        //        let type = "application/epub+zip"
+        //        let path = "The Federalist Papers.epub"
+        
+        
+        let downloadURLString = "https://cdn.aseeralkotb.com/storage/media/271961/بلاد-تركب-العنكبوتepub.epub"
+        guard let downloadURL = downloadURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        print(downloadURL)
+        let fileName = "بلاد-تركب-العنكبوتepub.epub"
+        let bookTitle = "بلاد تركب العنكبوت"
+        let type = "application/epub+zip"
+        let path = "بلاد-تركب-العنكبوتepub.epub"
+        
+//        - title : "بلاد تركب العنكبوت"
+//        ▿ authors : Optional<String>
+//          - some : "منى سلامة"
+//        - type : "application/epub+zip"
+//        - path : "بلاد تركب العنكبوت.epub"
+//        ▿ coverPath : Optional<String>
+//          - some : "D9132820-BE26-409E-834C-D6951AD266A2"
+//        - locator : nil
+//        - progression : 0.0
+//        ▿ created : ٢٠٢٢-١٢-٠٤ ١٩:٣٧:٥٤ +0000
+//          - timeIntervalSinceReferenceDate : 691875474.774513
+        
+        let ePubReader = EPubReaderConfigurator.shared
+        let check = ePubReader.isExist(fileName: fileName, downloadURL: downloadURL)
+        if check {
+            print(check)
+        } else {
+            // need to download
+            let downloadFolder = ""
+            download(downloadURL, fileName: fileName, folderDirName: downloadFolder) { [weak self] response in
+                switch response {
+                case .success(let value):
+                    guard let fileURL = value as? URL else { return }
+                    ePubReader.installPublication(url: fileURL, sender: self)
+                    //  ePubReader.installPublication(fileName: fileName)
+                    // downloaded
+                    let books = ePubReader.books
+                    let check = ePubReader.isExist(fileName: fileName, downloadURL: downloadURL)
+                    print(books)
+                case .failure(let error):
+                    print(error)
+                    
+                }
+                //                if case .success(let value) = response { }
+            }
+        }
     }
     
     @IBAction func goToLibrary(_ sender: Any) {
         let ePubReader = EPubReaderConfigurator.shared
         ePubReader.goToLibrary()
     }
-
+    
 }
 
