@@ -90,14 +90,9 @@ class EPubReaderConfigurator {
     weak var libraryModuleDelegate: LibraryModuleDelegate?
     var subscriptions = Set<AnyCancellable>()
     var books: [Book]?
-    // MARK: - Controller
-    private var fileName: String?
-    func config(_ value: String?) {
-        fileName = value
-    }
-    
+
     // MARK: - ePub Book installation
-    
+
     /// Imports a new publication to the library, either from:
     /// - a local file URL
     /// - a remote URL which will be downloaded
@@ -147,40 +142,5 @@ class EPubReaderConfigurator {
             }
             .store(in: &subscriptions)
     }
-    
-    func installPublication(fileName: String) {
-        
-    }
-    
-    func openBook(fileName: String) {
-        //find book
-        //let book = books[indexPath.item]
-        //  app.library.openBook(book, forPresentation: true, sender: nil)
-        //        app.library.openBook(book, forPresentation: true, sender: self)
-        //                .receive(on: DispatchQueue.main)
-        //                .sink { completion in
-        //                    if case .failure(let error) = completion {
-        //                        self.libraryDelegate?.presentError(error, from: self)
-        //                    }
-        //                    done()
-        //                } receiveValue: { pub in
-        //                    libraryDelegate.libraryDidSelectPublication(pub, book: book, completion: done)
-        //                }
-        //                .store(in: &subscriptions)
-    }
-    
-    @discardableResult
-    func loadBook() -> Bool {
-        // install sample epubs from bundle.
-        return false
-    }
-    
-    func getReaderViewController() -> UIViewController? {
-        return nil
-    }
-    
-//    func getReaderViewController(for bi: BookInformation) -> UIViewController? {
-//
-//    }
-    
+
 }
