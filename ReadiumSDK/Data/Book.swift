@@ -84,6 +84,10 @@ final class BookRepository {
         db.write { db in try Book.deleteOne(db, key: id) }
     }
     
+    func remove(_ title: String) -> AnyPublisher<Void, Error> {
+        db.write { db in try Book.deleteOne(db, key: title) }
+    }
+    
     func saveProgress(for id: Book.Id, locator: Locator) -> AnyPublisher<Void, Error> {
         guard let json = locator.jsonString else {
             return .just(())

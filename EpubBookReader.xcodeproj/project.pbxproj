@@ -99,6 +99,7 @@
 		C5BD43BF2933D553004878E1 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD43BD2933D553004878E1 /* FileHelper.swift */; };
 		C5BD43C02933D553004878E1 /* Debugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD43BE2933D553004878E1 /* Debugger.swift */; };
 		C5BE99C829354B3F00D6892F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5BE99C729354B3F00D6892F /* Localizable.strings */; };
+		C5FB0042293C7A09000A5D5B /* LibraryViewController+HelperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FB0041293C7A09000A5D5B /* LibraryViewController+HelperExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,6 +198,7 @@
 		C5BD43BD2933D553004878E1 /* FileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		C5BD43BE2933D553004878E1 /* Debugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugger.swift; sourceTree = "<group>"; };
 		C5BE99C729354B3F00D6892F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		C5FB0041293C7A09000A5D5B /* LibraryViewController+HelperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryViewController+HelperExtension.swift"; sourceTree = "<group>"; };
 		DCA771F555BBD0B9CBA5FC8B /* Pods-EpubBookReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EpubBookReader.release.xcconfig"; path = "Target Support Files/Pods-EpubBookReader/Pods-EpubBookReader.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,6 +287,7 @@
 			children = (
 				C5A913C7292E8D8B0043B0F4 /* DRM */,
 				C5A913CA292E8D8B0043B0F4 /* PublicationMenuViewController.strings */,
+				C5FB0041293C7A09000A5D5B /* LibraryViewController+HelperExtension.swift */,
 				C5A913CC292E8D8B0043B0F4 /* LibraryViewController.swift */,
 				C5A913CD292E8D8B0043B0F4 /* PublicationMenuViewController.swift */,
 				C5A913CE292E8D8B0043B0F4 /* LibraryService.swift */,
@@ -720,6 +723,7 @@
 				C5BD43C02933D553004878E1 /* Debugger.swift in Sources */,
 				C5678CB428D61F34001096BE /* ViewController.swift in Sources */,
 				C5A9144D292E8DEE0043B0F4 /* OPDSFactory.swift in Sources */,
+				C5FB0042293C7A09000A5D5B /* LibraryViewController+HelperExtension.swift in Sources */,
 				C5A91452292E8DEE0043B0F4 /* OPDSFacetViewController.swift in Sources */,
 				C5678CB028D61F34001096BE /* AppDelegate.swift in Sources */,
 				C5A91428292E8DC20043B0F4 /* OutlineTableView.swift in Sources */,

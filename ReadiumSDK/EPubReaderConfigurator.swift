@@ -41,8 +41,7 @@ extension EPubReaderConfigurator {
         guard let viewerViewController = app?.library.rootViewController else { return }
         setAppNavigationController(controller: viewerViewController)
     }
-    
-    
+
     func backToPrevious() {
         setAppNavigationController(controller: previousViewController)
     }
@@ -54,6 +53,7 @@ extension EPubReaderConfigurator {
         //        guard let navigationController = navigationController else { return }
         //        navigationController.pushViewController(viewerViewController, animated: true)
     }
+
 }
 
 class EPubReaderConfigurator {
@@ -92,7 +92,47 @@ class EPubReaderConfigurator {
     var books: [Book]?
 
     // MARK: - ePub Book installation
-
+    func deleteAllBooks() {
+        books?.forEach({ book in
+            self.libraryService.remove(book)
+                .sink { completion in
+                    if case .failure(let error) = completion {
+                        //log(.warning, "can't remove \(book.title)")
+                        Debugger().printOut(error.localizedDescription, context: .error)
+                    }
+                } receiveValue: {}
+                .store(in: &self.subscriptions)
+            
+        })
+        print("\(books?.count)")
+    }
+    
+    func findBook(_ name: String) -> Book? {
+        let found = books?.first(where: { book in
+            let title = book.title
+            if title == name {
+                return true
+            } else {
+                return false
+            }
+        })
+        return found
+    }
+    
+    func isExist(_ name: String, downloadURL: String) -> Bool {
+        //        let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
+        //        let fileName = "FederalistPapers.epub"
+        
+        
+        //Book(title: fileName, type: epub, path: nil)
+       let found = findBook(name)
+        var result = false
+        if found != nil {
+            result = true
+        }
+        return result
+    }
+    
     /// Imports a new publication to the library, either from:
     /// - a local file URL
     /// - a remote URL which will be downloaded
@@ -109,7 +149,6 @@ class EPubReaderConfigurator {
                 .assertNoFailure()
                 .sink { _ in }
                 .store(in: &subscriptions)
-            displayInformation(forCellAt: 0, sender: viewController)
         }
         
         func tryAdd(from url: URL) {
@@ -120,13 +159,14 @@ class EPubReaderConfigurator {
         
     }
     
-    func displayInformation(forCellAt index: Int, sender: UIViewController) {
+    func displayBook(_ name: String, sender: UIViewController) {
         
         func done() {
 //                self.loadingIndicator.removeFromSuperview()
 //                collectionView.isUserInteractionEnabled = true
         }
-        guard let book = books?[index] else { return }
+        
+        guard let book = findBook(name) else { return }
         print(book)
         libraryService.openBook(book, forPresentation: true, sender: sender)
             .receive(on: DispatchQueue.main)
@@ -142,5 +182,4 @@ class EPubReaderConfigurator {
             }
             .store(in: &subscriptions)
     }
-
 }

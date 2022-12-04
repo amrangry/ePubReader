@@ -20,6 +20,11 @@ class ViewController: UIViewController {
         _ = EPubReaderConfigurator.shared.app
     }
     
+    @IBAction func deleteAllBooks(_ sender: Any) {
+        let ePubReader = EPubReaderConfigurator.shared
+        ePubReader.deleteAllBooks()
+    }
+    
     @IBAction func downloadAndOpenEnglishBook(_ sender: Any) {
         
         //        "id": "271961",
@@ -62,7 +67,7 @@ class ViewController: UIViewController {
 //          - timeIntervalSinceReferenceDate : 691875474.774513
         
         let ePubReader = EPubReaderConfigurator.shared
-        let check = ePubReader.isExist(fileName: fileName, downloadURL: downloadURL)
+        let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
         if check {
             print(check)
         } else {
@@ -76,7 +81,7 @@ class ViewController: UIViewController {
                     //  ePubReader.installPublication(fileName: fileName)
                     // downloaded
                     let books = ePubReader.books
-                    let check = ePubReader.isExist(fileName: fileName, downloadURL: downloadURL)
+                    let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
                     print(books)
                 case .failure(let error):
                     print(error)

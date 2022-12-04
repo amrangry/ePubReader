@@ -43,11 +43,11 @@ class LibraryViewController: UIViewController, Loggable {
     
     weak var libraryDelegate: LibraryModuleDelegate?
     
-    private var subscriptions = Set<AnyCancellable>()
+    var subscriptions = Set<AnyCancellable>()
     
     lazy var loadingIndicator = PublicationIndicator()
-    private lazy var addBookButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButtonPressed))
-    private lazy var addBackButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(goBackButtonPressed))
+    lazy var addBookButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addBookButtonPressed))
+    lazy var addBackButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(goBackButtonPressed))
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -141,86 +141,7 @@ class LibraryViewController: UIViewController, Loggable {
         flowLayout.minimumInteritemSpacing = minimumSpacing
         flowLayout.itemSize = CGSize(width: width, height: height)
     }
-    
-    @objc func goBackButtonPressed() {
-        let ePubReader = EPubReaderConfigurator.shared
-        ePubReader.backToPrevious()
-    }
-    
-    @objc func addBookButtonPressed() {
-        let alert = UIAlertController(title: NSLocalizedString("library_add_book_title", comment: "Title for the Add book alert"), message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("library_add_book_from_device_button", comment: "`Add a book from your device` button"), style: .default, handler: { _ in self.addBookFromDevice() }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("library_add_book_from_url_button", comment: "`Add a book from a URL` button"), style: .default, handler: { _ in self.addBookFromURL() }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel_button", comment: "Cancel adding a book from a URL"), style: .cancel))
-        alert.popoverPresentationController?.barButtonItem = addBookButton
-        present(alert, animated: true)
-    }
-    
-    private func addBookFromDevice() {
-        var types = DocumentTypes.main.supportedUTTypes
-        if let type = UTType(String(kUTTypeText)) {
-            types.append(type)
-        }
         
-        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: types)
-        documentPicker.delegate = self
-        present(documentPicker, animated: true, completion: nil)
-    }
-    
-    private func addBookFromURL(url: String? = nil, message: String? = nil) {
-        let alert = UIAlertController(
-            title: NSLocalizedString("library_add_book_from_url_title", comment: "Title for the `Add book from URL` alert"),
-            message: message,
-            preferredStyle: .alert
-        )
-        
-        func retry(message: String? = nil) {
-            addBookFromURL(url: alert.textFields?[0].text, message: message)
-        }
-        
-        func add(_ action: UIAlertAction) {
-            let optionalURLString = alert.textFields?[0].text
-            guard let urlString = optionalURLString,
-                let url = URL(string: urlString) else
-            {
-                retry(message: NSLocalizedString("library_add_book_from_url_failure_message", comment: "Error message when trying to add a book from a URL"))
-                return
-            }
-            
-            func tryAdd(from url: URL) {
-                library.importPublication(from: url, sender: self)
-                    .receive(on: DispatchQueue.main)
-                    .sink { completion in
-                        if case .failure(let error) = completion {
-                            retry(message: error.localizedDescription)
-                        }
-                    } receiveValue: { _ in }
-                    .store(in: &subscriptions)
-            }
-
-            let hideActivity = toastActivity(on: view)
-            OPDSParser.parseURL(url: url) { data, _ in
-                DispatchQueue.main.async {
-                    hideActivity()
-
-                    if let downloadLink = data?.publication?.downloadLinks.first, let downloadURL = URL(string: downloadLink.href) {
-                        tryAdd(from: downloadURL)
-                    } else {
-                        tryAdd(from: url)
-                    }
-                }
-            }
-        }
-        
-        alert.addTextField { textField in
-            textField.placeholder = NSLocalizedString("library_add_book_from_url_placeholder", comment: "Placeholder for the URL field in the `Add book from URL` alert")
-            textField.text = url
-        }
-        alert.addAction(UIAlertAction(title: NSLocalizedString("add_button", comment: "Add a book from a URL button"), style: .default, handler: add))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel_button", comment: "Cancel adding a boom from a URL button"), style: .cancel))
-        present(alert, animated: true, completion: nil)
-    }
-    
 }
 
 extension LibraryViewController {
@@ -338,6 +259,15 @@ extension LibraryViewController: UICollectionViewDelegateFlowLayout, UICollectio
         }
         
         let book = books[indexPath.item]
+        book.url().receive(on: DispatchQueue.main).sink { completion in
+            if case .failure(let error) = completion {
+                self.libraryDelegate?.presentError(error, from: self)
+            }
+            done()
+        } receiveValue: { url in
+            print(url)
+        }
+
         library.openBook(book, forPresentation: true, sender: self)
             .receive(on: DispatchQueue.main)
             .sink { completion in

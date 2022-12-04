@@ -301,8 +301,7 @@ final class LibraryService: Loggable {
     }
 }
 
-
-private extension Book {
+extension Book {
     
     func url() -> AnyPublisher<URL, LibraryError> {
         // Absolute URL.
