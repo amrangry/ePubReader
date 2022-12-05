@@ -56,6 +56,28 @@ extension EPubReaderConfigurator {
 
 }
 
+extension EPubReaderConfigurator {
+    
+    func presentAlertForDownloadedBook(_ message: String, presenter: UIViewController?) {
+        //NSLocalizedString("Book already downloaded before into your library", comment: "Message: Book already downloaded before into your library")
+        let alert = UIAlertController(
+            title: NSLocalizedString("Alert", comment: "Title of the information alert"),
+            message: message,
+            preferredStyle: .alert
+        )
+        let confirmButton = UIAlertAction(title: NSLocalizedString("Go to Library", comment: "Confirmation button to renew a publication"), style: .default, handler: { [weak self] _ in
+            self?.goToLibrary()
+        })
+        let dismissButton = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel viewing the publication"), style: .cancel)
+        
+        alert.addAction(dismissButton)
+        alert.addAction(confirmButton)
+        // Present alert.
+        presenter?.present(alert, animated: true)
+    }
+    
+}
+
 class EPubReaderConfigurator {
 
     static let shared = EPubReaderConfigurator()

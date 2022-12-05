@@ -70,7 +70,8 @@ class ViewController: UIViewController {
         let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
         if check {
             print(check)
-            ePubReader.app.presentAlert("Already Exist", message: "Book", from: self)//presentAlert("Success", message: "Book Downloaded", from: self)
+            //ePubReader.app.presentAlert("Already Exist", message: "Book", from: self)//presentAlert("Success", message: "Book Downloaded", from: self)
+            ePubReader.presentAlertForDownloadedBook("Book Already downloaded into your library!", presenter: self)
         } else {
             // need to download
             let downloadFolder = ""
@@ -86,7 +87,8 @@ class ViewController: UIViewController {
                             let books = ePubReader.books
                             let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
                             print(books)
-                            ePubReader.app.presentAlert("Success", message: "Book Downloaded", from: self)
+                            //ePubReader.app.presentAlert("Success", message: "Book Downloaded", from: self)
+                            ePubReader.presentAlertForDownloadedBook("Book downloaded successfully into your library!", presenter: self)
                         case .failure(let error):
                             print(error)
                         }
