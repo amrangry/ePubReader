@@ -126,7 +126,7 @@ class EPubReaderConfigurator {
                 .store(in: &self.subscriptions)
             
         })
-        print("\(books?.count)")
+       // print("\(books?.count)")
     }
     
     func findBook(_ name: String) -> Book? {

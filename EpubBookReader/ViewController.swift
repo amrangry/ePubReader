@@ -86,7 +86,7 @@ class ViewController: UIViewController {
                             print(book)
                             let books = ePubReader.books
                             let check = ePubReader.isExist(bookTitle, downloadURL: downloadURL)
-                            print(books)
+                            //print(books)
                             //ePubReader.app.presentAlert("Success", message: "Book Downloaded", from: self)
                             ePubReader.presentAlertForDownloadedBook("Book downloaded successfully into your library!", presenter: self)
                         case .failure(let error):
