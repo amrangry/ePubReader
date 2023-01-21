@@ -1,9 +1,10 @@
 //
 //  FileHelper.swift
-//  Adka
+//  ADKATech
 //
 //  Created by Amr ELghadban on 6/27/18.
-//  Copyright © 2018 Adka. All rights reserved.
+//  Copyright © 2018 ADKA Tech. All rights reserved.
+//  www.adkatech.com
 //
 
 import UIKit

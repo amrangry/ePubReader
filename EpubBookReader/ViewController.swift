@@ -3,6 +3,8 @@
 //  EpubBookReader
 //
 //  Created by Amr Elghadban on 17/09/2022.
+//  Copyright © 2022 ADKA Tech. All rights reserved.
+//  www.adkatech.com
 //
 
 import UIKit
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
         ePubReader.deleteAllBooks()
     }
     
+    /*EnglishBook*/
     @IBAction func downloadAndOpenEnglishBook(_ sender: Any) {
         
         //        "id": "271961",

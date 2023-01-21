@@ -1,9 +1,10 @@
 //
 //  Debugger.swift
-//  BookStore
+//  ADKATech
 //
 //  Created by AmrAngry on 5/8/21.
 //  Copyright © 2021 ADKA Tech. All rights reserved.
+//  www.adkatech.com
 //
 
 import Foundation
@@ -83,7 +84,7 @@ public class Debugger {
         } else {
             // print not enabled
 #if DEBUG
-        
+            
 #endif
         }
     }

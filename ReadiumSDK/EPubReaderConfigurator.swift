@@ -3,6 +3,8 @@
 //  EpubBookReader
 //
 //  Created by Amr Elghadban on 23/11/2022.
+//  Copyright © 2022 ADKA Tech. All rights reserved.
+//  www.adkatech.com
 //
 
 //import Foundation
@@ -33,15 +35,15 @@ import UniformTypeIdentifiers
 extension EPubReaderConfigurator {
     
     func goToLibrary() {
-//        let ePubReader = EPubReaderConfigurator.shared
-//        let app = ePubReader.app
+        //        let ePubReader = EPubReaderConfigurator.shared
+        //        let app = ePubReader.app
         let rootViewController = AppDelegate.shared?.window?.rootViewController
         previousViewController = rootViewController
         // Library
         guard let viewerViewController = app?.library.rootViewController else { return }
         setAppNavigationController(controller: viewerViewController)
     }
-
+    
     func backToPrevious() {
         setAppNavigationController(controller: previousViewController)
     }
@@ -53,7 +55,7 @@ extension EPubReaderConfigurator {
         //        guard let navigationController = navigationController else { return }
         //        navigationController.pushViewController(viewerViewController, animated: true)
     }
-
+    
 }
 
 extension EPubReaderConfigurator {
@@ -79,7 +81,7 @@ extension EPubReaderConfigurator {
 }
 
 class EPubReaderConfigurator {
-
+    
     static let shared = EPubReaderConfigurator()
     
     var previousViewController: UIViewController?
@@ -112,7 +114,7 @@ class EPubReaderConfigurator {
     weak var libraryModuleDelegate: LibraryModuleDelegate?
     var subscriptions = Set<AnyCancellable>()
     var books: [Book]?
-
+    
     // MARK: - ePub Book installation
     func deleteAllBooks() {
         books?.forEach({ book in
@@ -126,7 +128,7 @@ class EPubReaderConfigurator {
                 .store(in: &self.subscriptions)
             
         })
-       // print("\(books?.count)")
+        // print("\(books?.count)")
     }
     
     func findBook(_ name: String) -> Book? {
@@ -142,12 +144,7 @@ class EPubReaderConfigurator {
     }
     
     func isExist(_ name: String, downloadURL: String) -> Bool {
-        //        let downloadURL = "http://bbebooksthailand.com/phpscripts/bbdownload.php?ebookdownload=FederalistPapers-EPUB2"
-        //        let fileName = "FederalistPapers.epub"
-        
-        
-        //Book(title: fileName, type: epub, path: nil)
-       let found = findBook(name)
+        let found = findBook(name)
         var result = false
         if found != nil {
             result = true
@@ -160,7 +157,7 @@ class EPubReaderConfigurator {
     /// - a remote URL which will be downloaded
     func installPublication(url: URL, sender: UIViewController?, completion: @escaping ResultResponse<Any>){
         guard let viewController = AppDelegate.shared?.window?.rootViewController else {
-           // completion(.failure())
+            // completion(.failure())
             return
         }
         app.library.importPublication(from: url, sender: viewController)
@@ -174,8 +171,8 @@ class EPubReaderConfigurator {
     func displayBook(_ name: String, sender: UIViewController) {
         
         func done() {
-//                self.loadingIndicator.removeFromSuperview()
-//                collectionView.isUserInteractionEnabled = true
+            //                self.loadingIndicator.removeFromSuperview()
+            //                collectionView.isUserInteractionEnabled = true
         }
         
         guard let book = findBook(name) else { return }
@@ -187,9 +184,9 @@ class EPubReaderConfigurator {
                     self.libraryModuleDelegate?.presentError(error, from: sender)
                 }
             } receiveValue: { pub in
-//                let detailsViewController = self.factory.make(publication: pub)
-//                detailsViewController.modalPresentationStyle = .popover
-//                self.navigationController?.pushViewController(detailsViewController, animated: true)
+                //                let detailsViewController = self.factory.make(publication: pub)
+                //                detailsViewController.modalPresentationStyle = .popover
+                //                self.navigationController?.pushViewController(detailsViewController, animated: true)
                 self.libraryModuleDelegate?.libraryDidSelectPublication(pub, book: book, completion: done)
             }
             .store(in: &subscriptions)

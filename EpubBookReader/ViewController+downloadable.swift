@@ -3,12 +3,13 @@
 //  EpubBookReader
 //
 //  Created by Amr Elghadban on 27/11/2022.
+//  Copyright © 2022 ADKA Tech. All rights reserved.
+//  www.adkatech.com
 //
 
 import Foundation
 import Alamofire
 
-//typealias CallResponse<T> = ((NetworkResult<T>) -> Void)?
 typealias ResultResponse<T> = ((Result<T, Error>) -> Void)
 extension ViewController {
     
@@ -34,15 +35,6 @@ extension ViewController {
                                   requestModifier: nil,
                                   to: destination)
             .validate(statusCode: 200 ... 500)
-        //            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-        //                print("Progress: \(progress.fractionCompleted)")
-        //            }
-        //            .downloadProgress { progress in
-        //                    print("Download Progress: \(progress.fractionCompleted)")
-        //            }
-            .downloadProgress(queue: progressQueue) { progress in
-                print("Download Progress: \(progress.fractionCompleted)")
-            }
             .responseData(queue: .main) { response in
                 switch response.result {
                 case .success:
@@ -50,7 +42,6 @@ extension ViewController {
                         completion(.success(destinationURL))
                     } else {
                         let error = NSError(domain: "Network", code: 200) as Error
-                        //"Couldn't get destination url"
                         completion(.failure(error))
                     }
                 case .failure(let error):
