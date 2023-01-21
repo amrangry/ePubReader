@@ -45,8 +45,8 @@ class ViewController: UIViewController {
         //        let type = "application/epub+zip"
         //        let path = "The Federalist Papers.epub"
         
-        
-        let downloadURLString = "https://cdn.aseeralkotb.com/storage/media/271961/بلاد-تركب-العنكبوتepub.epub"
+        let downloadURLString = "https://www.adkatech.com/projects/DynamicLink/بلاد-تركب-العنكبوتepub.epub"
+       // let downloadURLString = "https://cdn.aseeralkotb.com/storage/media/271961/بلاد-تركب-العنكبوتepub.epub"
         guard let downloadURL = downloadURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         print(downloadURL)
         let fileName = "بلاد-تركب-العنكبوتepub.epub"
