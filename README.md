@@ -39,7 +39,6 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 * [ ] Remove library screen 
 * [ ] Change font  
 * [ ] Fix scroll option
-* [ ] Slider for the reading
 * [ ] Fix scroll option to be vertical or horizontal only
 
 ## Contributing
