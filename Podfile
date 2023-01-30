@@ -26,6 +26,13 @@ target 'EpubBookReader' do
   # Network
   pod 'Alamofire', :inhibit_warnings => true
   
+  #dependance
+#  Installing CryptoSwift (1.5.1)
+#  Installing DifferenceKit (1.3.0)
+#  Installing Fuzi (3.1.3)
+#  Installing MBProgressHUD (1.2.0)
+#  Installing Minizip (1.0.0)
+
 end
 
 post_install do |installer|
