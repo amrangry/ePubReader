@@ -1,11 +1,9 @@
 # ePubReader
 reader for epub file POC for iOS
-
-ePubReader POC readium
-
-https://github.com/readium/swift-toolkit
+using readium
 
 ## Table of Contents
+* [Technology](#Technology)
 * [Exmple](#Example)
 * [Supported OS & SDK Versions](#supported-os--sdk-versions)
 * [Versioning](#Versioning)
@@ -13,6 +11,10 @@ https://github.com/readium/swift-toolkit
 * [Contributing](#contributing)
     - [Development](#development)
     - [Feedback](#feedback)
+
+# Technology 
+
+Readium [Readium Swift Toolkit](https://github.com/readium/swift-toolkit)
 
 # Example
 
